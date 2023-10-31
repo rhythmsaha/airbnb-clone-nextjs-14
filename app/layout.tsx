@@ -7,8 +7,6 @@ import Modal from "@/components/modals/Modal";
 import RegisterModal from "@/components/modals/RegisterModal";
 import ToasterProvider from "@/providers/ToastProvider";
 
-const inter = Inter({ subsets: ["latin"] });
-
 const nunito = Nunito({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
