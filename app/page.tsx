@@ -1,3 +1,7 @@
 export default function Home() {
-    return <div className="">Hello Airbnb</div>;
+    return (
+        <div className="">
+            <button>Rhythmsaha</button>
+        </div>
+    );
 }
