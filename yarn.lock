@@ -62,6 +62,33 @@
     "@babel/helper-validator-identifier" "^7.22.20"
     to-fast-properties "^2.0.0"
 
+"@cloudinary-util/url-loader@^3.14.1":
+  version "3.14.1"
+  resolved "https://registry.yarnpkg.com/@cloudinary-util/url-loader/-/url-loader-3.14.1.tgz#24aabfa36b3316705a62a281e746a70b2fc143be"
+  integrity sha512-XHzD/k3iHTsp2RlJ0RPx4Jh2D9DA4b0QhMdquman57n27wLe+urXA8hsCprOK84Hs5plmQjxIuR7+1525bgl8Q==
+  dependencies:
+    "@cloudinary-util/util" "2.2.1"
+    "@cloudinary/url-gen" "^1.10.2"
+
+"@cloudinary-util/util@2.2.1", "@cloudinary-util/util@^2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@cloudinary-util/util/-/util-2.2.1.tgz#c482d9321d37d921b347858a121c161b68782bd3"
+  integrity sha512-MEIqn5WtPP3mxSMTNNfpqlGS1UquAXcjmVdY/t/edD/ZWVjI85viBiOMIuF0W6n6UF5gTstLymfQNYx0YO/GZg==
+
+"@cloudinary/transformation-builder-sdk@^1.7.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@cloudinary/transformation-builder-sdk/-/transformation-builder-sdk-1.8.0.tgz#c5146a9b00da92c1fb7e42fda684987bb39bc5cb"
+  integrity sha512-/QLSDDI+rfYH3bFH+DpgEk8NgSoeqwiea9GW5VXplcpebQOOcFqOzNFM6Hlik3PDqq4JMP4s3E7BoPZ1Rdk/IQ==
+  dependencies:
+    "@cloudinary/url-gen" "^1.7.0"
+
+"@cloudinary/url-gen@^1.10.2", "@cloudinary/url-gen@^1.7.0":
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/@cloudinary/url-gen/-/url-gen-1.12.0.tgz#e7337b825bc7fb0bf3033fa8f73fac823678af00"
+  integrity sha512-L22tftVId19g8irjuHuXOdTCWC8p45ZiejtFeuqmOtwW7nkPH1vHt5MaEvDM4DiljnW0CKZJxE9RNjyxgx1/+w==
+  dependencies:
+    "@cloudinary/transformation-builder-sdk" "^1.7.0"
+
 "@emotion/babel-plugin@^11.11.0":
   version "11.11.0"
   resolved "https://registry.yarnpkg.com/@emotion/babel-plugin/-/babel-plugin-11.11.0.tgz#c2d872b6a7767a9d176d007f5b31f7d504bb5d6c"
@@ -2249,6 +2276,14 @@ next-auth@^4.24.4:
     preact "^10.6.3"
     preact-render-to-string "^5.1.19"
     uuid "^8.3.2"
+
+next-cloudinary@^5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/next-cloudinary/-/next-cloudinary-5.2.0.tgz#4a9a19be147469139ede429d482689fc178323e4"
+  integrity sha512-UDHDTMA0jMVs1ZFHApVXF85ms8LA8HLmwYkNxg/SqW8wMIgnUFoG4iQ34HCx/qgCvP1n2OLtf9rkdyMR00it5w==
+  dependencies:
+    "@cloudinary-util/url-loader" "^3.14.1"
+    "@cloudinary-util/util" "^2.2.1"
 
 next@14.0.0:
   version "14.0.0"
