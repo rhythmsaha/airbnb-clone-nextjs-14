@@ -1,13 +1,17 @@
 import ClientOnly from "@/components/ClientOnly";
 import Container from "@/components/Container";
 import EmptyState from "@/components/EmptyState";
-import getListings from "./actions/getListings";
+import getListings, { IListingParams } from "./actions/getListings";
 import ListingCard from "@/components/listings/ListingCard";
 import { useState } from "react";
 import getCurrentUser from "./actions/getCurrentUser";
 
-export default async function Home() {
-    const listings = await getListings();
+interface HomeProps {
+    searchParams: IListingParams;
+}
+
+const Home: React.FC<HomeProps> = async ({ searchParams }) => {
+    const listings = await getListings(searchParams);
     const currentUser = await getCurrentUser();
     const isEmpty = true;
 
@@ -30,4 +34,6 @@ export default async function Home() {
             </Container>
         </ClientOnly>
     );
-}
+};
+
+export default Home;
