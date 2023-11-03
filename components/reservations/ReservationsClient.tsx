@@ -47,7 +47,7 @@ const ReservationsClient: React.FC<ReservationsClientProps> = ({ reservations, c
                 {reservations.map((reservation: any) => (
                     <ListingCard
                         key={reservation.id}
-                        data={reservation.listing}
+                        data={reservation.Listing}
                         reservation={reservation}
                         actionId={reservation.id}
                         onAction={onCancel}
