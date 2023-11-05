@@ -10,6 +10,8 @@ interface HomeProps {
     searchParams: IListingParams;
 }
 
+export const dynamic = "force-dynamic";
+
 const Home: React.FC<HomeProps> = async ({ searchParams }) => {
     const listings = await getListings(searchParams);
     const currentUser = await getCurrentUser();
@@ -18,7 +20,7 @@ const Home: React.FC<HomeProps> = async ({ searchParams }) => {
     if (listings.length === 0) {
         return (
             <ClientOnly>
-                <EmptyState showReset />
+                <EmptyState showReset={Object.keys(searchParams).length !== 0} />
             </ClientOnly>
         );
     }

@@ -17,7 +17,7 @@ const ReservationsPage = async () => {
         );
     }
 
-    const reservations: SafeReservation[] = (await getReservations({ authorId: currentUser.id })) || [];
+    const reservations = ((await getReservations({ authorId: currentUser.id })) as SafeReservation[]) || [];
 
     if (reservations.length === 0) {
         return (
