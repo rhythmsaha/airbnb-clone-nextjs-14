@@ -17,6 +17,7 @@ const TripsPage = async () => {
     }
 
     const reservations = ((await getReservations({ userId: currentUser.id })) as SafeReservation[]) || [];
+    console.log(reservations);
 
     if (reservations.length === 0) {
         return (
