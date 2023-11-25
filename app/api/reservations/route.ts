@@ -6,16 +6,13 @@ export async function POST(request: Request) {
     const currentUser = await getCurrentUser();
 
     if (!currentUser) {
-        // return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
         return NextResponse.error();
     }
 
     const body = await request.json();
+    const { listingId, startDate, endDate, totalPrice } = body;
 
-    const { listingId, totalPrice, startDate, endDate } = body;
-
-    if (!listingId || !totalPrice || !startDate || !endDate) {
-        // return NextResponse.json({ error: "Invalid request" }, { status: 400 });
+    if (!listingId || !startDate || !endDate || !totalPrice) {
         return NextResponse.error();
     }
 
@@ -23,7 +20,6 @@ export async function POST(request: Request) {
         where: {
             id: listingId,
         },
-
         data: {
             reservations: {
                 create: {

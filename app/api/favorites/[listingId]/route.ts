@@ -9,49 +9,57 @@ interface IParams {
 export async function POST(request: Request, { params }: { params: IParams }) {
     const currentUser = await getCurrentUser();
 
-    if (!currentUser) return NextResponse.error();
+    if (!currentUser) {
+        return NextResponse.error();
+    }
 
     const { listingId } = params;
 
-    if (!listingId || typeof listingId !== "string") throw new Error("Invalid listing id");
+    if (!listingId || typeof listingId !== "string") {
+        throw new Error("Invalid ID");
+    }
 
-    const favoriteIds = [...(currentUser.favouriteIds || [])];
+    let favoriteIds = [...(currentUser.favoriteIds || [])];
 
     favoriteIds.push(listingId);
 
-    const updatedUser = await prisma.user.update({
+    const user = await prisma.user.update({
         where: {
             id: currentUser.id,
         },
         data: {
-            favouriteIds: favoriteIds,
+            favoriteIds,
         },
     });
 
-    return NextResponse.json(updatedUser);
+    return NextResponse.json(user);
 }
 
 export async function DELETE(request: Request, { params }: { params: IParams }) {
     const currentUser = await getCurrentUser();
 
-    if (!currentUser) return NextResponse.error();
+    if (!currentUser) {
+        return NextResponse.error();
+    }
 
     const { listingId } = params;
 
-    if (!listingId || typeof listingId !== "string") throw new Error("Invalid listing id");
+    if (!listingId || typeof listingId !== "string") {
+        throw new Error("Invalid ID");
+    }
 
-    let favoriteIds = [...(currentUser.favouriteIds || [])];
+    let favoriteIds = [...(currentUser.favoriteIds || [])];
 
     favoriteIds = favoriteIds.filter((id) => id !== listingId);
 
-    const updatedUser = await prisma.user.update({
+    const user = await prisma.user.update({
         where: {
             id: currentUser.id,
         },
         data: {
-            favouriteIds: favoriteIds,
+            favoriteIds,
         },
     });
 
-    return NextResponse.json(updatedUser);
+    return NextResponse.json(user);
 }
